@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Hashtag Manager Pro",
+  "version": "1.0",
+  "description": "A hashtag management tool.",
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*", "https://x.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
