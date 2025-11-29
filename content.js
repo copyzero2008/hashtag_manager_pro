@@ -1,5 +1,5 @@
 // ==========================================
-// HASHTAG MANAGER V1.1.2 - PRO (FINAL POLISH)
+// HASHTAG MANAGER V1.1.3 - PRO (RELEASE CANDIDATE)
 // ==========================================
 
 // --- 1. LOCALIZATION DATABASE ---
@@ -392,6 +392,7 @@ container.innerHTML = `
           <button id="sort-btn" class="header-icon-btn" title="Toggle Visual Sort">${ICONS.sort}</button>
           <button id="select-mode-btn" class="header-icon-btn" title="Multi-Select Mode">${ICONS.select}</button>
           <button id="edit-mode-btn" class="header-icon-btn" title="Edit Items & Tabs">${ICONS.edit}</button>
+          <button id="add-mode-btn" class="header-icon-btn" title="Add">${ICONS.add}</button>
           <button id="settings-btn" class="header-icon-btn" title="Settings">${ICONS.settings}</button>
           <button id="close-panel" class="header-icon-btn" title="Close">${ICONS.close}</button>
         </div>
@@ -484,7 +485,7 @@ container.innerHTML = `
       <div id="copy-selected-bar" class="hidden">
           <div style="display: flex; flex-direction: column;">
               <div id="selected-count">0 items selected</div>
-              <div id="char-counter" style="font-size: 11px; opacity: 0.8;">0/280</div>
+              <div id="char-counter" style="font-size: 13px; font-weight: 600; opacity: 1;">0/280</div>
           </div>
           <button id="copy-selected-btn" data-i18n="btn_copy">Copy</button>
       </div>
@@ -714,7 +715,7 @@ function renderPresetsList() {
        const el = document.createElement('div'); el.className = 'priority-item'; el.style.cursor = 'pointer'; el.style.justifyContent = 'space-between';
        const count = getTwitterCount(b.hashtags);
        const isOver = count > 280;
-       el.innerHTML = `<div style="display:flex; align-items:center; overflow:hidden; flex:1; min-width:0;"><span style="margin-right:6px; flex-shrink:0;">📦</span><span class="item-name" style="flex:0 1 auto; margin-right:8px;">${b.name}</span><span style="font-size:11px; color:${isOver ? '#f4212e' : '#536471'}; opacity:0.8; white-space:nowrap; flex-shrink:0;">${count}/280</span></div><button class="mini-btn edit-preset-btn" style="margin-left:4px; flex-shrink:0;">✎</button>`;
+       el.innerHTML = `<div style="display:flex; align-items:center; overflow:hidden; flex:1; min-width:0;"><span style="margin-right:6px; flex-shrink:0;">📦</span><span class="item-name" style="flex:0 1 auto; margin-right:8px;">${b.name}</span><span style="font-size:13px; font-weight:600; color:${isOver ? '#f4212e' : '#536471'}; white-space:nowrap; flex-shrink:0;">${count}/280</span></div><button class="mini-btn edit-preset-btn" style="margin-left:4px; flex-shrink:0;">✎</button>`;
        el.draggable = true;
        el.addEventListener('dragstart', (e) => { const rawTags = b.hashtags.split(' ').filter(t=>t.trim()); const sortedText = sortHashtagList(rawTags).join(' '); handleDragStart(e, sortedText, 'text'); });
        el.onclick = (e) => { if(e.target.classList.contains('edit-preset-btn')) { editingBundleId = b.id; renderPresetsList(); return; } if (appMode === 'select') { const tags = b.hashtags.split(' '); let c=0; tags.forEach(t=>{if(t.trim()){selectedTags.add(t.trim());c++}}); updateSelectionUI(); renderApp(); showNotification(`${t('notif_unpacked')} ${c}`); } else { const rawTags = b.hashtags.split(' ').filter(t=>t.trim()); const sortedText = sortHashtagList(rawTags).join(' '); handleCopy(b.name, sortedText); } };
@@ -760,7 +761,6 @@ function setMode(newMode) {
 function updateUIForMode() {
     const drawers = { prio: container.querySelector('#priority-drawer'), history: container.querySelector('#history-drawer'), presets: container.querySelector('#presets-drawer') };
     const panel = container.querySelector('#hashtag-panel');
-    // REMOVED 'add-mode-btn' from list
     ['history-mode-btn', 'prio-mode-btn','presets-mode-btn','select-mode-btn','edit-mode-btn','settings-btn'].forEach(id => {
         const btn = container.querySelector('#'+id);
         if(btn) { const btnMode = id.replace('-mode-btn', '').replace('-btn', ''); const isActive = appMode === btnMode || (appMode==='prio' && id==='prio-mode-btn') || (appMode==='history' && id==='history-mode-btn') || (appMode==='presets' && id==='presets-mode-btn'); btn.classList.toggle('active', isActive); }
@@ -790,6 +790,15 @@ bindBtn('prio-mode-btn', () => setMode('prio')); bindBtn('close-prio-btn', () =>
 bindBtn('presets-mode-btn', () => setMode('presets')); bindBtn('close-presets-btn', () => setMode('view'));
 bindBtn('select-mode-btn', () => setMode('select')); bindBtn('edit-mode-btn', () => setMode('edit'));
 bindBtn('settings-btn', () => setMode('settings')); bindBtn('close-panel', () => container.querySelector('#panel-wrapper').classList.add('hidden'));
+
+// COPY BUTTON FIX
+bindBtn('copy-selected-btn', () => {
+    const text = getSelectedText();
+    if (text) {
+        handleCopy(t('ui_selected'), text);
+        setMode('view');
+    }
+});
 
 // Form Cancels
 bindBtn('cancel-new-main-tab', () => { container.querySelector('#new-tab-main-form').classList.add('hidden'); if(container.querySelector('#view-container')) container.querySelector('#view-container').classList.remove('hidden'); });
