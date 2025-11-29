@@ -2,11 +2,13 @@
 A browser extension that makes managing and using Twitter (currently X) hashtags simpler.
 
 **Hashtag Manager Pro**
-Just as it saus on the tin, this is a browser extension for Chromium based browsers (I didn't actually test it on Firefox at the time of writing this Readme) that aims make using and organizing hashtags simpler.
+Just as it says on the tin, this is a browser extension for Chromium based browsers (I didn't actually test it on Firefox at the time of writing this Readme) that aims make using and organizing hashtags simpler.
 
 This tool was created due to my own need to do so, while getting into the VRChat community. When posting pictures, I want to add the proper hashtags, but having to constantly look them up or keep them on a text file was kind of a pain, so I took matters into my own hands.
 
 ... And by that, I mean that I offloaded all the work to an AI, as I don't have coding experience. Because of that, the tool is a bit basic and maybe crude, as it was made to meet my own need, with the idea to share it coming after all the features were reaching completion, both to provide a tool to do something I find tedious to the community, making it easier to share, and so that, hopefully, one day, someone who actually knows what they are doing sees this tool and this code, and says "I can do it better!".
+
+Oh, and the reason it's called "Pro"? That's just because it sounds fancier.
 
 ✨ **Features**
 
