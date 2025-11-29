@@ -11,6 +11,7 @@ This tool was created due to my own need to do so, while getting into the VRChat
 ✨ **Features**
 
 **Dynamic Categories**: Organize hashtags into custom tabs
+
 **Multiple Modes**:
 
 View Mode: Click any hashtag to instantly copy it
@@ -47,6 +48,7 @@ Select the folder containing the extension files
 
 
 Note: I'm not planning to publish this to the Chrome Web Store. This is open source for anyone to use, modify, or republish as they see fit (under the MIT license).
+
 📖 **How to Use**
 
 **Basic Usage**
