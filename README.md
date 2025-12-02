@@ -1,8 +1,10 @@
 # **📦 Hashtag Manager Pro**
 
+Read in [日本語](README_JA.md) | [한국어](README_KO.md) | [简体中文](README_ZH_CN.md) | [繁體中文](README_ZH_TW.md)
+
 **Hashtag Manager Pro** is a browser extension designed to make managing and using Twitter (X) hashtags simpler. It allows you to organize tags into categories, create drag-and-drop presets, and use a unique "Priority Ladder" to ensure your most important tags always fit within the character limit.
 
-*(Upload a screenshot to your repo and name it screenshot\_main.png to see it here\!)*
+![Main UI](images/hashtag_manager_pro_UI.png)
 
 ## **📖 Why this tool?**
 
