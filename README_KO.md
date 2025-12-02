@@ -2,7 +2,7 @@
 
 **Hashtag Manager Pro**는 Twitter (X) 해시태그를 더 간단하게 관리하고 사용할 수 있도록 설계된 브라우저 확장 프로그램입니다. 태그를 카테고리로 정리하고, 드래그 앤 드롭으로 프리셋을 생성하며, 고유한 "우선순위 사다리(Priority Ladder)"를 사용하여 가장 중요한 태그가 글자 수 제한 내에 항상 포함되도록 할 수 있습니다.
 
-*(여기에 screenshot\_main.png 스크린샷을 업로드하세요\!)*
+![Main UI](images/hashtag_manager_pro_UI.png)
 
 ## **📖 개발 배경**
 
