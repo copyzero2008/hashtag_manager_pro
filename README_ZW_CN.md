@@ -2,7 +2,7 @@
 
 **Hashtag Manager Pro** 是一款旨在简化 Twitter (X) 标签管理和使用的浏览器扩展。它可以将标签整理到分类中，创建拖放式预设，并使用独特的“优先梯队（Priority Ladder）”功能，确保最重要的标签始终包含在字数限制内。
 
-*(请在此处上传 screenshot\_main.png 的截图！)*
+![Main UI](images/hashtag_manager_pro_UI.png)
 
 ## **📖 开发背景**
 
